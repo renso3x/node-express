@@ -1,0 +1,36 @@
+doctype html
+html
+	head
+		title Book Store
+		meta(charset="utf-8")
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+
+		link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		.container
+			.row
+				.col-md-12
+					h1 TechBooks
+
+		.navbar.navbar-inverse
+			.container
+				#navbar.collapse.navbar-collapse
+					ul.nav.navbar-nav
+						li(class=(title === 'Home' ? 'active' : ''))
+							a(href="/") Home
+						li(class=(title === 'About' ? 'active' : ''))
+							a(href="/about") About
+						li(class=(title === 'Cart' ? 'active' : ''))
+							a(href="/cart") Cart
+
+
+		block content
+
+		footer.container
+			.row
+				hr
+				p.text-center
+					| TechBooks &copy; 2015
+					a(href="/manage") Manage

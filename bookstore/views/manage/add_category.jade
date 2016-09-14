@@ -1,0 +1,17 @@
+extends layout
+
+block content
+	.container
+		h2 Add Category
+
+		ul.errors
+			if errors
+				each error, i in errors 
+					li.alert.alert-danger #{error.msg}
+		form(method="POST", action="/manage/add-category")
+			input.form-control(type="hidden", name="_csrf", value="#{csrfToken}")
+			.form-group
+				label Category Name
+				input.form-control(type="text", name="name")
+
+			button.btn.btn-primary(type="submit") Save

@@ -1,0 +1,38 @@
+extends layout
+
+block content
+	.container
+		h2 Add Books
+
+		ul.errors
+			if errors
+				each error, i in errors 
+					li.alert.alert-danger #{error.msg}
+		form(method="POST", action="/manage/book/edit/#{book._id}", enctype="multipart/form-data")
+			input.form-control(type="hidden", name="_csrf", value="#{csrfToken}")
+			.form-group
+				label Title
+				input.form-control(type="text", name="title", value="#{book.title}")
+			.form-group
+				label Category
+				select.form-control(name='category')
+					each category, i in categories
+						option(value='#{category.name}') #{category.name}
+			.form-group
+				label Description
+				textarea.form-control(name="description", id="description")
+					| #{book.description}
+			.form-group
+				label Author:
+				input.form-control(type="text", name="author", value="#{book.author}")
+			.form-group
+				label Publisher:
+				input.form-control(type="text", name="publisher", value="#{book.publisher}")
+			.form-group
+				label Price:
+				input.form-control(type="text", name="price", value="#{book.price}")
+			.form-group
+				label Cover Image
+				input.form-control(type="file", name="mainimage")
+
+			button.btn.btn-primary(type="submit") Update

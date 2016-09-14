@@ -1,0 +1,23 @@
+extends layout
+
+block content
+	.container
+		h2 Books
+		p
+			a(href="/manage/add-books", class="btn btn-primary") Add Book
+		table.table
+			thead
+				tr
+					th ID
+					th Book Title
+					th Category
+					th Action
+			tbody
+				each book, i in books
+					tr
+						td #{book._id}
+						td #{book.title}
+						td #{book.category}
+						td 
+							a(href="/manage/book/edit/#{book._id}", class="btn btn-info") Edit
+							a(href="#", class="btn btn-danger removeBook", data-id="#{book._id}") Delete

@@ -1,0 +1,21 @@
+extends layout
+
+block content
+	.container
+		h2 Categories
+		p
+			a(href="/manage/add-category", class="btn btn-primary") Add Category
+		table.table
+			thead
+				tr
+					th ID
+					th Category Name
+					th Action
+			tbody
+				each category, i in categories
+					tr
+						td #{category._id}
+						td #{category.name}
+						td 
+							a(href="/manage/category/edit/#{category._id}", class="btn btn-info") Edit
+							a(href="/manage/category/delete/#{category._id}", class="btn btn-danger", data="#{category._id}") Delete

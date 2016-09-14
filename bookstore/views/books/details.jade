@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+	.container
+		.col-md-3
+			img(src="/images/#{book.cover}", class="cover")
+		.col-md-8
+			h2 #{book.title}
+			ul.list-unstyled
+				li
+					| Category: #{book.category}
+				li
+					| Author: #{book.author}
+				li
+					| Publisher: #{book.publisher}
+			br
+			a(href="/books/details/1", class="btn btn-primary") $#{book.price}
+			br
+			p #{book.description}
+
+			a.btn.btn-success Add to Cart
